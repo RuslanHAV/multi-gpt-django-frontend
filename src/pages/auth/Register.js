@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { TextField, Button, Box, Alert, FormControlLabel, Checkbox, Typography } from "@mui/material";
-import { Form, NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useRegisterUserMutation } from "../../services/userAuthApi";
 import { storeToken } from "../../services/localStorageServices";
 
@@ -11,7 +11,7 @@ const Register = () => {
     const navigate = useNavigate();
 
     //!     TRK Query
-    const [registerUser, { isLoading }] = useRegisterUserMutation();
+    const [registerUser] = useRegisterUserMutation();
 
     const handleSubmit = async (event) => {
         event.preventDefault();

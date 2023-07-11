@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Button, Grid, Input } from "@mui/material";
+import { Box, Button, Grid } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import axios from "axios";
 
@@ -7,15 +7,8 @@ const Home = () => {
     const [url, setURL] = useState("");
     const [userPrompts, setUserPrompts] = useState("");
 
-    const [loading, setLoading] = useState(false);
-
     const handleChangeURL = (e) => {
         setURL(e.target.value);
-    };
-
-    const handleEmbedding = async () => {
-        const rlt = await axios.post("http://localhost:8000/api/langchain/url_embedding", { site_url: url });
-        console.log(rlt);
     };
 
     const handleUserPrompt = (e) => {
