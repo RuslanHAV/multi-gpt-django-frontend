@@ -1,1 +1,0 @@
-export const backend_api_url = `https://multi-gpt-backend-l4ngj.ondigitalocean.app/api`;

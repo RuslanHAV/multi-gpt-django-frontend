@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const userAuthApi = createApi({
     reducerPath: "userAuthApi",
-    baseQuery: fetchBaseQuery({ baseUrl: process.env.server_api_url + "/user/" }),
+    baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_SERVER_API_URL + "/user/" }),
     endpoints: (builder) => ({
         //!     Register user
         registerUser: builder.mutation({
