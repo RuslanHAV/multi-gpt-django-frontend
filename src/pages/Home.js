@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Box, Button, Grid, Input } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import axios from "axios";
+import { backend_api_url } from "../constants";
 
 const Home = () => {
     const [url, setURL] = useState("");
@@ -15,7 +16,7 @@ const Home = () => {
     };
 
     const handleEmbedding = async () => {
-        const rlt = await axios.post("http://localhost:8000/api/langchain/url_embedding", { site_url: url });
+        const rlt = await axios.post(backend_api_url + "/langchain/url_embedding", { site_url: url });
         console.log(rlt);
     };
 
@@ -24,7 +25,7 @@ const Home = () => {
     };
 
     const handleProcess = async () => {
-        const rlt = await axios.post("http://localhost:8000/api/langchain/chat", { site_url: url, userPrompts: userPrompts });
+        const rlt = await axios.post(backend_api_url + "/langchain/chat", { site_url: url, userPrompts: userPrompts });
         console.log(rlt);
     };
 
@@ -43,7 +44,7 @@ const Home = () => {
         const data = new FormData();
         data.set("newFile[]", upload);
         console.log("upload = ", upload);
-        // const res = await fetch("http://localhost:8000/api/langchain/pdf_embedding", {
+        // const res = await fetch(backend_api_url + "/langchain/pdf_embedding", {
         //     method: "POST",
         //     body: data,
         // });
